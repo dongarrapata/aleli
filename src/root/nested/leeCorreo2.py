@@ -8,10 +8,9 @@ import imaplib, email, json
 with open('config.json', 'r') as f:
     config = json.load(f)
 
-print("HOLA")
 correo = config['GMAIL']['EMAIL'] # correo gmail
 contrasena = config['GMAIL']['PASSWORD'] # contrasena gmail
-print("correo: " + correo + ", contraseña: " + contrasena)
+
 m = imaplib.IMAP4_SSL("imap.gmail.com", 993)
 m.login(correo, contrasena)
 m.select('"[Gmail]/All Mail"')
