@@ -8,10 +8,9 @@ import imaplib, email, json
 with open('config.json', 'r') as f:
     config = json.load(f)
 
-print("HOLA")
 correo = config['GMAIL']['EMAIL'] # correo gmail
 contrasena = config['GMAIL']['PASSWORD'] # contrasena gmail
-print("correo: " + correo + ", contraseña: " + contrasena)
+
 m = imaplib.IMAP4_SSL("imap.gmail.com", 993)
 m.login(correo, contrasena)
 m.select('"[Gmail]/All Mail"')
@@ -28,8 +27,13 @@ if result == 'OK':
         result, data = m.uid('fetch', num, '(RFC822)')
         if result == 'OK':
             email_message = email.message_from_bytes(data[0][1])
-            print(get_body(email_message))
-            print('From: ' + email_message['From'])
+            #===================================================================
+            # print(email_message.get_payload(0,False))
+            # input()
+            #===================================================================
+            for part in email_message.walk():
+                print(part.get_payload(None,True))
+                input()
             
 m.close()
 m.logout()
