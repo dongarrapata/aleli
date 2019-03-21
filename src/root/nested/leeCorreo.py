@@ -42,7 +42,7 @@ def get_emails(result_bytes):
     return msgs
 
 con = auth(user,password,imap_url)
-con.select('[Gmail]/All Mail')
+con.select('"[Gmail]/All Mail"')
 
 result, data = con.fetch(b'10','(RFC822)')
 raw = email.message_from_bytes(data[0][1])

@@ -13,7 +13,7 @@ def get_body(msg):
         return msg.get_payload(None,True)
 
 m = imaplib.IMAP4_SSL("imap.gmail.com", 993)
-m.login("","")
+m.login("correodietas@gmail.com","dietas1234")
 m.select('"[Gmail]/All Mail"')
 
 result, data = m.uid('search', None, "ALL") # search all email and return uids
@@ -27,5 +27,11 @@ if result == 'OK':
 
 m.search(None,'(FROM "msarmientonavarro@gmail.com")')
 
-m.close()
-m.logout()
+#===============================================================================
+# m.close()
+# m.logout()
+#===============================================================================
+
+'''
+scacA
+'''
