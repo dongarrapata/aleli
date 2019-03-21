@@ -3,11 +3,17 @@ Created on Mar 21, 2019
 
 @author: almanzor
 '''
-import imaplib
-import email
+import imaplib, email, json
 
+with open('config.json', 'r') as f:
+    config = json.load(f)
+
+print("HOLA")
+correo = config['GMAIL']['EMAIL'] # correo gmail
+contrasena = config['GMAIL']['PASSWORD'] # contrasena gmail
+print("correo: " + correo + ", contraseña: " + contrasena)
 m = imaplib.IMAP4_SSL("imap.gmail.com", 993)
-m.login("", "")
+m.login(correo, contrasena)
 m.select('"[Gmail]/All Mail"')
 
 def get_body(msg):

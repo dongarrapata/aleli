@@ -1,10 +1,10 @@
 import imaplib, email, os, time
 
-user = ''
-password = ''
-imap_url = 'imap.gmail.com'
+user = "correodietas@gmail.com"
+password = "dietas1234"
+imap_url = "imap.gmail.com"
 #Where you want your attachments to be saved (ensure this directory exists) 
-attachment_dir = 'your_attachment_dir'
+attachment_dir = '~/workspace/aleli'
 # sets up the auth
 def auth(user,password,imap_url):
     con = imaplib.IMAP4_SSL(imap_url)

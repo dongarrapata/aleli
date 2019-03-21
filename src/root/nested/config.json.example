@@ -1,0 +1,7 @@
+// config.json
+{
+  "GMAIL": {
+    "EMAIL": "example@gmail.com",
+    "PASSWORD": "your_password"
+  }
+}
