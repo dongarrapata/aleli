@@ -27,10 +27,6 @@ if result == 'OK':
         result, data = m.uid('fetch', num, '(RFC822)')
         if result == 'OK':
             email_message = email.message_from_bytes(data[0][1])
-            #===================================================================
-            # print(email_message.get_payload(0,False))
-            # input()
-            #===================================================================
             for part in email_message.walk():
                 print(part.get_payload(None,True))
                 input()
